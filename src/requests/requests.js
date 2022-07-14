@@ -9,6 +9,6 @@ const requests = {
   fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
   fetchDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
 };
-//https://api.themoviedb.org/3/trending/all/week?api_key=3653c65d49aec32d55c3b5dd49c7b021&language=en-US
+//https://api.themoviedb.org/3/trending/all/week?api_key==20e36c67eb6a93cdc35a8cff930c9893&language=en-US
 export default requests;
-// https://image.tmdb.org/t/p/original/trending/all/week?api_key=3653c65d49aec32d55c3b5dd49c7b021&language=en-US
+// https://image.tmdb.org/t/p/original/trending/all/week?api_key==20e36c67eb6a93cdc35a8cff930c9893&language=en-US

@@ -21,6 +21,7 @@
     object-fit: contain;
     padding: 0 5px;
     transition: transform 0.5s;
+    cursor: pointer;
 }
 .row_poster:hover{
     transform: scale(1.2);

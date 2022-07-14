@@ -24,7 +24,7 @@ function Row({title, fetchUrl, isLargeRow= false}) {
     width: "100%",
     playerVars: {
         autoplay: 1,
-        muted: 1,
+        
     },
    };
    const handleClick = (movie) => {
@@ -38,7 +38,7 @@ function Row({title, fetchUrl, isLargeRow= false}) {
 
             setTrailerUrl(urlParams.get("v"));
         })
-        //.catch((error)) => console.log(error));
+        .catch((error) => console.log(error));
     }
 
    }
