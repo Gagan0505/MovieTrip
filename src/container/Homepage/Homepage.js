@@ -8,18 +8,18 @@ import requests from "../../requests/requests";
 function HomePage() {
     return (
         <div> 
-            <Navbar showSignInButton={false} logout={true} />
+            <Navbar showSignInButton={false} logOut={true} />
             <Banner />
             <Row title ="Movie Box HITS" 
             fetchUrl = "https://api.themoviedb.org/3/trending/all/week?api_key=20e36c67eb6a93cdc35a8cff930c9893&language=en-US"
             isLargeRow
             />
             <Row title ="Action" 
-            fetchUrl={requests.fetchActionMovies}
+            fetchUrl= "https://api.themoviedb.org/3/trending/all/week?api_key=20e36c67eb6a93cdc35a8cff930c9893&language=en-US"
             
             />
             <Row title ="Adventure" 
-            fetchUrl = {requests.fetchDocumentaries}
+            fetchUrl = "https://api.themoviedb.org/3/trending/all/week?api_key=20e36c67eb6a93cdc35a8cff930c9893&language=en-US"
             
             />
             <Row title ="Comedy" 

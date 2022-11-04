@@ -8,7 +8,7 @@ function Banner() {
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [])
 
     async function fetchData() {
         const request = await axios.get(
@@ -19,7 +19,7 @@ function Banner() {
                 Math.floor(Math.random()*request.data.results.length - 1)
             ]
         );
-        console.log(movie?.backdrop_path);
+        //console.log(movie?.backdrop_path);
     }
 
     const truncate = (string, n) => {
@@ -41,10 +41,10 @@ function Banner() {
                 </h1>
                 <div className="banner_buttons">
                     <button>Play</button>
-                    <button>My List</button>
+                    <button>MyList</button>
                 </div>
                 <h3>
-                   {truncate(movie?.overview, 80)} 
+                   {truncate(movie?.overview, 100)} 
                 </h3>
             </div>
         </div>

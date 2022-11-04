@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import "./Navbar.css";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useAuth0 } from "@auth0/auth0-react";
+import logo from "../../logos/logo.jpg";
 
-function Navbar({ showSignInButton, logout, show }) {
+
+function Navbar({ showSignInButton, logOut, show }) {
   const {user, loginWithRedirect } = useAuth0();
 
-  const { logOut } = useAuth0();
-  const navigate = useNavigate();
+  const { logout } = useAuth0();
+  // const navigate = useNavigate();
 
   const [dark, setDark] = useState(false);
 
@@ -42,7 +44,7 @@ function Navbar({ showSignInButton, logout, show }) {
     >
       <img
         className="navbar_logo"
-        src="https://png.pngtree.com/element_our/20190529/ourmid/pngtree-blue-movie-video-tool-image_1229852.jpg"
+        src= {logo}
         alt="Logo"
       />
       {/* <Link to="/sign-in">
@@ -56,12 +58,19 @@ function Navbar({ showSignInButton, logout, show }) {
         </button>
       )}
 
-      {logout && ( 
+      {/* {
+        <>
+        <label className="Search_box">Search </label>
+        <input type="text">Search</input>
+        </>
+      } */}
+
+      {logOut && ( 
         <>
         <h4 className="user_name"> {user && `Hi ${user.name}`}</h4>
         <p 
         onClick={() => 
-        logOut({
+        logout({
           returnto: window.location.origin,
         })} className="navbar_icon">
           <AccountCircleIcon />

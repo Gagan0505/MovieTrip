@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./LandingPageContent.css";
 
+
 function LandingPageContent() {
     return (
         <div className="content_container">
+            
             <p className="content_title">
-                Unlimited Films, Anime, TV programs and more.
+                Unlimited Films, TV programs, Anime and more.
             </p>
             <p className="content_subtitle"> 
             Watch from anywhere. Cancel at anytime

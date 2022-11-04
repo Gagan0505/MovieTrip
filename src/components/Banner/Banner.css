@@ -1,12 +1,12 @@
 .banner{
     position: relative;
-    height: 52vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: white;
     background-blend-mode: screen;
-    z-index: -1;
+    z-index: 1000;
 }
 
 .banner_contents{
@@ -26,24 +26,22 @@ padding-left: 40px;
     justify-content: space-between;
     width : 140px;
     padding-top: 20px;
+    box-shadow: 2px;
     
 }
 
 .banner_buttons > button{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 20px;
-    background-color: transparent;
-    color: white;
-    outline: none;
-    border: none;
-    background-color: rgb(88, 88, 213);
-    font-size: 00.8rem;
-    font-weight: bolder;
     
+    background-color: transparent;
+    color: #141414;
+    background-color: #cc000c;
+    font-size: small;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    z-index: 1002;
 }
 
 .banner_buttons > button:hover{
     cursor: pointer;
-    background-color: white !important;
+    background-color: rgb(12, 75, 177) !important;
 }
