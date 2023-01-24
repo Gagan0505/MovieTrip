@@ -1,6 +1,6 @@
 .banner{
     position: relative;
-    height: 50vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,10 +12,15 @@
 .banner_contents{
 width: fit-content;
 padding-left: 40px;
+top: 30vh;
 
 }
+.banner_contents > h1{
+    
+    font-family: 'Kristen ITC';
+}
 .banner_contents > h3{
-    padding: 20px;
+    padding-top: 20px;
     width: 400px;
     font-weight: bolder;
     font-size: 0.8rem;   

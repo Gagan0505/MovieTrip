@@ -36,7 +36,7 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
 
           setTrailerUrl(urlParams.get("v"));
         })
-        .catch((error) => console.log(error));
+        // .catch((error) => console.log(error));
     }
   };
 
