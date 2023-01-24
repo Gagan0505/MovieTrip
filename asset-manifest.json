@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a3b40a61.css",
+    "main.js": "/static/js/main.56e52dac.js",
+    "static/js/787.5de5e627.chunk.js": "/static/js/787.5de5e627.chunk.js",
+    "static/media/gradient.png": "/static/media/gradient.5dd78bf1637bff9bbf81.png",
+    "static/media/logo.jpg": "/static/media/logo.402d2d5898bda27c0030.jpg",
+    "index.html": "/index.html",
+    "main.a3b40a61.css.map": "/static/css/main.a3b40a61.css.map",
+    "main.56e52dac.js.map": "/static/js/main.56e52dac.js.map",
+    "787.5de5e627.chunk.js.map": "/static/js/787.5de5e627.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a3b40a61.css",
+    "static/js/main.56e52dac.js"
+  ]
+}
