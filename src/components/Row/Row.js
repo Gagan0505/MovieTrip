@@ -73,6 +73,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import YouTube from "react-youtube";
 import "./Row.css";
+import requests from "../../requests/requests";
 
 function Row({ title, fetchUrl, isLargeRow = false }) {
   const [movies, setMovies] = useState([]);
@@ -101,7 +102,7 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
     const response = await axios.get(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encodeURIComponent(
         `${movie.title} ${movie.release_date.split("-")[0]} trailer`
-      )}&type=video&videoDefinition=high&key=AIzaSyBPNZ-JlOQOaxwBtR_N6cHszc_1NGBmj1c`
+      )}${requests.fetchtrailer}`
     );
     if (response.data.items.length > 0) {
       setTrailerId(response.data.items[0].id.videoId);

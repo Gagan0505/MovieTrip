@@ -10,7 +10,7 @@
 
 # production
 /build
-
+/src/requests
 # misc
 .DS_Store
 .env.local
