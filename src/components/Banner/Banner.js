@@ -19,7 +19,7 @@ function Banner() {
                 Math.floor(Math.random()*request.data.results.length - 1)
             ]
         );
-        //console.log(movie?.backdrop_path);
+        // console.log(movie?.backdrop_path);
     }
 
     const truncate = (string, n) => {
