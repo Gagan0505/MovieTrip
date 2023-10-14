@@ -5,21 +5,24 @@ import YouTube from "react-youtube";
 import "./Row.css";
 import requests from "../../requests/requests";
 
+
 function Row({ title, fetchUrl, isLargeRow = false }) {
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState([]);
   const [trailerId, setTrailerId] = useState(null);
 
   const base_url = "https://image.tmdb.org/t/p/original/";
+  
+useEffect(() => {
+  fetchData();
+  
+  //eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   async function fetchData() {
     const request = await axios.get(fetchUrl);
     setMovies(request.data.results);
   };
-  useEffect(() => {
-    fetchData();
-    
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  
 
   const handleClick = (movie) => {
     if (trailerId) {
