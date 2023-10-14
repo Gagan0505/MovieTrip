@@ -5,14 +5,32 @@ import requests from "../../requests/requests";
 
 function Banner() {
     const [movie, setMovie] = useState([]);
+    const [trailerId, setTrailerId] = useState(null);
+    const handleClick = (movie) => {
+        if (trailerId) {
+          setTrailerId(null);
+        } else {
+          fetchTrailerId(movie);
+        }
+      };
 
+    const fetchTrailerId = async () => {
+        const response = await axios.get(
+            `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encodeURIComponent(
+              `${movie.title} ${movie.release_date.split("-")[0]} trailer`
+            )}${requests.fetchtrailer}`
+          );
+          if (response.data.items.length > 0) {
+            setTrailerId(response.data.items[0].id.videoId);
+          }
+    };
     useEffect(() => {
         fetchData();
     }, [])
 
     async function fetchData() {
         const request = await axios.get(
-            "https://api.themoviedb.org/3/trending/all/week?api_key=20e36c67eb6a93cdc35a8cff930c9893&language=en-US"
+            `https://api.themoviedb.org/3/${requests.fetchTrending}`
         );
         setMovie(
             request.data.results[
@@ -40,7 +58,7 @@ function Banner() {
                     {movie?.original_name || movie?.original_title} {" "}
                 </h1>
                 <div className="banner_buttons">
-                    <button>Play</button>
+                    <button onClick={handleClick}>Play</button>
                     <button>MyList</button>
                 </div>
                 <h3>
