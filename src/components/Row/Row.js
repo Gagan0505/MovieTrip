@@ -33,9 +33,11 @@ useEffect(() => {
   };
 
   const fetchTrailerId = async (movie) => {
+    const date = movie.release_date ? movie.release_date : movie.first_air_date;
+    const name = movie.title ? movie.title : movie.name;
     const response = await axios.get(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encodeURIComponent(
-        `${movie.title} ${movie.release_date.split("-")[0]} trailer`
+        `${name} ${date.split("-")[0]} trailer`
       )}${requests.fetchtrailer}`
     );
     if (response.data.items.length > 0) {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Banner.css";
 import axios from "axios";
 import requests from "../../requests/requests";
+import YouTube from "react-youtube";
 
 function Banner() {
     const [movie, setMovie] = useState([]);
@@ -15,9 +16,11 @@ function Banner() {
       };
 
     const fetchTrailerId = async () => {
+        const date = movie.release_date ? movie.release_date : movie.first_air_date;
+        const name = movie.title ? movie.title : movie.name;
         const response = await axios.get(
             `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encodeURIComponent(
-              `${movie.title} ${movie.release_date.split("-")[0]} trailer`
+              `${name} ${date.split("-")[0]} trailer`
             )}${requests.fetchtrailer}`
           );
           if (response.data.items.length > 0) {
@@ -43,7 +46,17 @@ function Banner() {
     const truncate = (string, n) => {
         return string?.length > n ? string.substr(0,n-1) + "..." : string;
     };
+
+    const opts = {
+        height: "390",
+        width: "100%",
+        playerVars: {
+          autoplay: 1,
+          origin: "http://localhost:3000",
+        },
+      };
         return(
+        <>
         <div className="banner"
         style={{
             backgroundImage: movie?.backdrop_path
@@ -65,7 +78,10 @@ function Banner() {
                    {truncate(movie?.overview, 100)} 
                 </h3>
             </div>
+            
         </div>
+        {trailerId && <YouTube videoId={trailerId} opts={opts} />}
+        </>
     );
 }
 

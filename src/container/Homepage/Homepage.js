@@ -10,6 +10,7 @@ function HomePage() {
         <div className="HomepageContainer"> 
             <Navbar showSignInButton={false} logOut={true} />
             <Banner />
+            
             <Row title= "Trending NOW" 
             fetchUrl={`https://api.themoviedb.org/3/${requests.fetchTrending}`}
             isLargeRow
