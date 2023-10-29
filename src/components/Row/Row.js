@@ -6,6 +6,7 @@ import "./Row.css";
 import requests from "../../requests/requests";
 
 
+
 function Row({ title, fetchUrl, isLargeRow = false }) {
   const [movies, setMovies] = useState([]);
   const [trailerId, setTrailerId] = useState(null);
@@ -31,7 +32,7 @@ useEffect(() => {
       fetchTrailerId(movie);
     }
   };
-
+  
   const fetchTrailerId = async (movie) => {
     const date = movie.release_date ? movie.release_date : movie.first_air_date;
     const name = movie.title ? movie.title : movie.name;
@@ -53,7 +54,9 @@ useEffect(() => {
       origin: "http://localhost:3000",
     },
   };
-
+  const truncate = (string, n) => {
+    return string?.length > n ? string.substr(0,n-1) + "..." : string;
+  };
   return (
     <div className="row">
       <h1>{title}</h1>
@@ -62,15 +65,23 @@ useEffect(() => {
           (movie) =>
             movie.poster_path &&
             movie.backdrop_path && (
+              <div key={movie.id}
+               className={`row_poster ${isLargeRow && "rowPoster_large"}`}
+               onClick={() => handleClick(movie)}
+              >
+              <div className="poster_container">
               <img
-                key={movie.id}
-                className={`row_poster ${isLargeRow && "rowPoster_large"}`}
-                onClick={() => handleClick(movie)}
                 src={`${base_url}${
                   isLargeRow ? movie.poster_path : movie.backdrop_path
                 }`}
                 alt={movie.name}
               />
+              </div>
+              <div className="movie_title">
+                <h4>{movie.title ? movie.title: movie.name}</h4>
+                <p>{truncate(movie?.overview, 100)}</p>
+                </div>
+              </div>
             )
         )}
       </div>
